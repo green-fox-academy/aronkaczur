@@ -1,0 +1,30 @@
+main {
+  background-image;
+  margin: 0;
+  font-family: 'DM Mono', monospace;
+  padding: 5% 10%;
+}
+
+h1 {
+  text-transform: uppercase;
+}
+header{
+  padding: 8x;
+  text-align: center;
+  background: #1abc9c;
+  color: white;
+  font-size: 30px;
+}
+
+header h1{
+  text-align: right;
+}
+
+#posts{
+  border-style: groove;
+  text-align: justify;
+
+}
+#titles{
+  text-transform: uppercase;
+}
