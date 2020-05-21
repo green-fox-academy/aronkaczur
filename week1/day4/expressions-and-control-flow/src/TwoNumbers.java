@@ -10,3 +10,4 @@ public class TwoNumbers {
         System.out.println(number1 % number2);
     }
 }
+
