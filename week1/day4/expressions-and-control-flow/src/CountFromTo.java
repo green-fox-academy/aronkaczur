@@ -2,18 +2,26 @@ import java.util.Scanner;
 
 public class CountFromTo {
     public static void main(String[] args) {
-        System.out.println("Gimmie numbers (second numbers must be bigger)");
-        Scanner scanner = new Scanner(System.in);
-        int numb1 = scanner.nextInt();
-        System.out.println("Gimmie one more number (second numbers must be bigger)");
-        int numb2 = scanner.nextInt();
-        if (numb1>numb2) {
-            System.out.println("Second number should be bigger ");
-        }   else
-                for (numb1 =<numb2; numb1++){
-                    System.out.println(numb1);
-                }
 
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Gimme first number ");
+        int num1 = scanner.nextInt();
+
+        System.out.println("Gimme me second number ");
+        int num2 = scanner.nextInt();
+
+        if (num1 > num2) {
+            System.out.println("The second number must be bigger");
+        } else {
+
+            int dif = num2 - num1;
+
+            for (int i = 0; i < dif; i++) {
+
+                System.out.println(num1 + i);
+            }
+        }
     }
-///nincs kész még sorry
+
 }
