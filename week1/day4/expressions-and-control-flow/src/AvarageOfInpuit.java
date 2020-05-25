@@ -20,9 +20,9 @@ public class AvarageOfInpuit {
         double num5 = scanner.nextInt();
 
 
-        double sum= num1 + num2 + num3 + num4 + num5;
-        double avg = sum /5;
-        System.out.println("So the sum of your number is "+ sum+" and the avarage is "+avg);
+        double sum = num1 + num2 + num3 + num4 + num5;
+        double avg = sum / 5;
+        System.out.println("So the sum of your number is " + sum + " and the avarage is " + avg);
 
 
     }
