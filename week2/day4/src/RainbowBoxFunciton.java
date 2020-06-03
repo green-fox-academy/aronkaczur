@@ -1,32 +1,37 @@
 import javax.swing.*;
 
 import java.awt.*;
-import java.util.Random;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
-public class GoToCenter {
+class RainbowBoxFunction {
     public static void mainDraw(Graphics graphics) {
-        int x = 0;
-        int y = 0;
-        Random random = new Random();
+        Color[] Color ={java.awt.Color.RED, java.awt.Color.orange, java.awt.Color.yellow, java.awt.Color.green, java.awt.Color.blue ,java.awt.Color.PINK, java.awt.Color.cyan};
+        int x = 160-125;
+        int y = 40;
+        int size = 250;
+        for (int i = 0; i < Color.length; i++) {
 
-        for (int i = 0; i < 7800; i++) {
-            int r = random.nextInt(255);
-            int g= random.nextInt(255);
-            int b = random.nextInt(255);
-            graphics.setColor(new Color(r,g,b));
-            goToCenter (x,y, graphics);
-            x= x+1;
+            graphics.fillRect(x,y,size,size);
+            size = size - 40;
+            graphics.setColor(Color[i]);
+            // something similar.
 
         }
 
+    }
+;
 
 
-    }
-    public static void goToCenter (int x, int y, Graphics g){
-        g.drawLine(x,y,160,160);
-    }
+
+
+
+
+
+
+
     // Don't touch the code below
     static int WIDTH = 320;
     static int HEIGHT = 320;

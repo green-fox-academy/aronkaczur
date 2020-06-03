@@ -5,28 +5,32 @@ import java.util.Random;
 
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
-public class GoToCenter {
-    public static void mainDraw(Graphics graphics) {
-        int x = 0;
-        int y = 0;
-        Random random = new Random();
+public class FourRectangles {
 
-        for (int i = 0; i < 7800; i++) {
-            int r = random.nextInt(255);
-            int g= random.nextInt(255);
-            int b = random.nextInt(255);
+    public static void mainDraw(Graphics graphics){
+        // draw four different size and color rectangles.
+        // avoid code duplication.
+        Random random = new Random();
+        int x = 25;
+        int y = 25;
+        int w = 50;
+        int h = 50;
+
+        for (int i = 0; i < 15; i++) {
+            int r = random.nextInt(256);
+            int g = random.nextInt(256);
+            int b = random.nextInt(256);
             graphics.setColor(new Color(r,g,b));
-            goToCenter (x,y, graphics);
-            x= x+1;
+            Graphics2D g2 = (Graphics2D) graphics;
+            g2.setStroke(new BasicStroke(3));
+            graphics.drawRect(x,y,w,h);
+            x=x+10;
+            y=y+10;
+
 
         }
-
-
-
     }
-    public static void goToCenter (int x, int y, Graphics g){
-        g.drawLine(x,y,160,160);
-    }
+
     // Don't touch the code below
     static int WIDTH = 320;
     static int HEIGHT = 320;

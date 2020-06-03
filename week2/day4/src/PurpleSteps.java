@@ -1,31 +1,32 @@
 import javax.swing.*;
 
 import java.awt.*;
-import java.util.Random;
 
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
-public class GoToCenter {
+public class PurpleSteps {
     public static void mainDraw(Graphics graphics) {
-        int x = 0;
-        int y = 0;
-        Random random = new Random();
+        int x = 10;
+        int y = 10;
+        int w = 10;
+        int h = 10;
+        for (int i = 0; i < 15; i++) {
 
-        for (int i = 0; i < 7800; i++) {
-            int r = random.nextInt(255);
-            int g= random.nextInt(255);
-            int b = random.nextInt(255);
-            graphics.setColor(new Color(r,g,b));
-            goToCenter (x,y, graphics);
-            x= x+1;
+            graphics.drawRect(x,y,w,h);
+            graphics.setColor(Color.MAGENTA);
+            graphics.fillRect(x, y, w, h);
+            graphics.setColor(Color.black);
+            x = x + 10;
+            y = y + 10;
+
 
         }
-
-
-
     }
-    public static void goToCenter (int x, int y, Graphics g){
-        g.drawLine(x,y,160,160);
+    public static void squareDraw (int x, int y, Graphics graphics){
+        graphics.setColor(Color.green);
+        Graphics2D g2 = (Graphics2D) graphics;
+        g2.setStroke(new BasicStroke(3));
+        graphics.drawRect(x,y,30,30);
     }
     // Don't touch the code below
     static int WIDTH = 320;
