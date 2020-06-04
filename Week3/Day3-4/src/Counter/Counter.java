@@ -5,7 +5,6 @@ import org.junit.jupiter.api.Test;
 
 public class Counter {
     public int counterNumber;
-    public int number;
     public int initialvalue;
 
 
@@ -23,6 +22,7 @@ public class Counter {
         this.counterNumber += number;
     }
     public void add(){
+
         this.counterNumber++;
     }
     public int get() {
