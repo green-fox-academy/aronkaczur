@@ -1,7 +1,5 @@
 package Sharpie;
 
-import com.sun.jmx.snmp.SnmpUnknownAccContrModelException;
-
 public class Sharpie {
     public String color;
     public float width;
