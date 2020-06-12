@@ -23,11 +23,12 @@ public class Student extends Person {
         System.out.println("My goal is: Be a junior software developer");
     }
     @Override
-    public void introduce(){
-        System.out.println("Hi, I`m "+  this.name + "a" + this.age + "year old " + this.gender + "from "
-       + this.previousOrganization + " who skipped "+ this.skippedDays + "days from the course already.");
-    }
-    public void skipDays(int numberOfDays){
+
+    public String specialIntroduce(){
+        return " from " +this.previousOrganization + " who skipped " + this.skippedDays + "days from the course already" ;
+
+        }
+        public void skipDays(int numberOfDays) {
         skippedDays = +numberOfDays;
     }
 }

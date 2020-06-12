@@ -15,8 +15,12 @@ public class Person {
     }
 
     public void introduce(){
-        System.out.println("Hi,  I`m " +this.name+" a "+this.age+" year old "+this.gender);
+        System.out.println("Hi,  I`m " +this.name+" a "+this.age+" year old "+this.gender + this.specialIntroduce()) ;
 
+    }
+
+    protected String specialIntroduce(){
+        return "";
     }
 
     public void getGoal(){
