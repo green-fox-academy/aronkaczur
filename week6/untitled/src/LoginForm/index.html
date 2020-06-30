@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login-form</title>
+    <link rel="stylesheet" type="text/css" href="style.css"/>
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/hu_HU/sdk.js#xfbml=1&version=v7.0&appId=176075312426696" nonce="ggx2O3iJ"></script>
+    <meta name="google-signin-client_id" content="YOUR_CLIENT_ID.apps.googleusercontent.com">
+
+</head>
+<body>
+
+    <form class="box" >
+        <h1>Login</h1>
+        <h5>Username</h5>
+        <input type="text" name="username" placeholder="Username">
+        <h5>Password</h5>
+        <input type="password" name="password" placeholder="Password" id="pass">
+        <input type="checkbox" onclick="Toggle()">
+        <b>Show Password</b>
+        <input type="checkbox" id="click">
+        <p></p>
+        <label for="click" class="click-me">Forgot Password?</label>
+        <input type="submit" name="submit" value="Login" onclick="lazy()">
+        <p></p>
+        <p></p>
+        <p></p>
+        <div id="my-signin2"></div>
+        <script>
+            function onSuccess(googleUser) {
+                console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
+            }
+            function onFailure(error) {
+                console.log(error);
+            }
+            function renderButton() {
+                gapi.signin2.render('my-signin2', {
+                    'scope': 'profile email',
+                    'width': 240,
+                    'height': 50,
+                    'longtitle': true,
+                    'theme': 'dark',
+                    'onsuccess': onSuccess,
+                    'onfailure': onFailure
+                });
+            }
+        </script>
+
+        <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
+
+        <p></p>
+        <p></p>
+        <div class="fb-login-button" data-size="medium" data-button-type="continue_with" data-layout="default" data-auto-logout-link="false" data-use-continue-as="true" data-width=""></div>
+        <div class="content">
+            <div class="header">
+                <h2>Ooooops, something went wrong</h2>
+                <label for="click" class="fa fa-times"></label>
+                <img src="https://www.uokpl.rs/fpng/f/109-1092423_404-error-images.png" alt="404" style="width: 380px;height: 330px">
+                <div class="line"</div>
+            <label for="click" class="close-btn">Close</label>
+            </div>
+
+        </div>
+    </form>
+
+
+
+    <script>
+
+        function lazy() {
+            alert("The programmer was way to lazy")
+
+        }
+
+        function Toggle() {
+            var temp = document.getElementById("pass");
+            if (temp.type === "password") {
+                temp.type = "text";
+            }
+            else {
+                temp.type = "password";
+            }
+        }
+    </script>
+
+</body>
+</html>

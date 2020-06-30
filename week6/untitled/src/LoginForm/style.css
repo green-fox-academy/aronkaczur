@@ -1,0 +1,170 @@
+::placeholder{
+    color: greenyellow;
+    opacity: 1;
+    font-variant: small-caps;
+}
+
+body {
+    background: darkgray;
+    font-family: "Roboto", sans-serif;
+    margin: 0;
+    padding: 0;
+    background: url("https://uploads-ssl.webflow.com/598435743262c800013158eb/598c28e3153f320001974cdf_green_fox_logo_full.svg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: 70%;
+
+}
+.box{
+    width: 400px;
+    padding: 40px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background: white;
+    text-align: center;
+    opacity: 0.8;
+    box-shadow: #AAB0B9;
+
+}
+.box input[type ="password"],.box input[type="text"]{
+    border: 0;
+    background: gray;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    border: 2px solid;
+    padding: 15px 60px;
+
+}
+h1{
+    font-variant: small-caps;
+}
+h5{
+    text-align: left;
+    color: darkgray;
+    font-variant: small-caps;
+ }
+h6{
+    text-align: right;
+    padding: 0px 60px;
+}
+.box input[type="submit"]{
+    background: none;
+    display: block;
+    margin: 20px auto;
+    padding: 14px 40px;
+    text-align: center;
+    border: 2px solid green;
+    outline: none;
+    color: black;
+    border-radius: 24px;
+    cursor: pointer;
+    font-variant: small-caps;
+    font-size: 24px;
+
+}
+
+.box input[type="submit"]:hover{
+    background: greenyellow;
+}
+
+
+.click-me{
+    display: block;
+    width: 40px;
+    height: 20px;
+    background: gray;
+    color: whitesmoke;
+    text-align-all: center;
+    font-variant: small-caps;
+    font-size: small;
+    padding: 20px 35px;
+    cursor: pointer;
+    margin: auto;
+    text-align: center;
+    border-radius: 3px;
+}
+
+#click{
+    display: none;
+}
+
+.click-me:hover{
+    background: green;
+}
+
+.content{
+    visibility: hidden;
+    width: 500px;
+    height: 450px;
+    background: red;
+    border-radius: 3px;
+    box-shadow: 0 2px 12px 0 rgba(0,0,0,.4);
+    opacity: 100%;
+    transform: none;
+    padding: 40px;
+    position: absolute;
+    left: 5%;
+    top: 5%;
+}
+.header{
+    height: 68px;
+    background: green;
+    border-radius: 3px 3px 0 0;
+    box-shadow: 0 2px 3px 0 rgba(0,0,0,.2);
+    text-align: center;
+
+
+}
+.header h2{
+    color: whitesmoke;
+    font-weight: normal;
+
+
+
+}
+.fa-times{
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    color: whitesmoke;
+    font-size: 20px;
+    font-weight: bold;
+}
+img{
+    padding-top: 20px;
+}
+.line{
+    bottom: 60px;
+    width: 100%;
+    height: 1px;
+    background: silver;
+}
+
+.close-btn{
+    position:absolute;
+    bottom: 15px;
+    right: 25px;
+    border: 1px solid chocolate;
+    border-radius: 3px;
+    padding: 8px 10px;
+    font-size: 18px;
+    cursor: pointer;
+
+}
+.close-btn:hover{
+    color: whitesmoke;
+    transition: .5s;
+}
+
+#click:checked ~ .content{
+    opacity: 1;
+    visibility: visible;
+}
+#my-signin2{
+    position: center;
+    width: 197px; height: 28px
+}
