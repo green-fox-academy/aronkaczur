@@ -1,16 +1,12 @@
 package com.greenfoxacademy.basicwebshop.controller;
 
 import com.greenfoxacademy.basicwebshop.model.ShopItem;
+import com.sun.org.apache.xml.internal.serializer.AttributesImplSerializer;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Controller
@@ -31,8 +27,8 @@ public class Webshop {
        new ShopItem("The Last of Us Part II - PlayStation 4","Pre-order & receive the following special in-game items:Ammo Capacity Upgrade:Unlock an ammo capacity upgrade for Ellie's pistol.Crafting Training Manual:Unlock the Crafting Training Manual, which provides access to new crafting recipes and upgrades.",15700,14),
        new ShopItem("SanDisk 128GB MicroSDXC UHS-I Memory Card for Nintendo Switch - SDSQXAO-128G-GNCZN","Incredible speeds in a microSD card officially licensed for the Nintendo Switch and Nintendo Switch Lite systems",9900,34),
        new ShopItem("Oculus Quest All-in-one VR Gaming Headset – 128GB","All-in-one VR: No PC. No wires. No limits. Oculus Quest is an all-in-one gaming system built for virtual reality. Now you can play almost anywhere with just a VR headset and controllers.",160000,18),
-       new ShopItem("BENGOO G9000 Stereo Gaming Headset for PS4, PC, Xbox One com.greenfoxacademy.basicwebshop.Controller","【MULTI-PLATFORM COMPATIBLE】Support PlayStation 4, New Xbox One, PC, Nintendo 3DS, Laptop, PSP, Tablet, iPad, Computer, Mobile Phone. Please note you need an extra Microsoft Adapter (Not Included) when connect with an old version Xbox One controller.",8700,2),
-       new ShopItem("Elite Series 2 com.greenfoxacademy.basicwebshop.Controller - Black","Play like a pro with the all new Xbox elite wireless controller series 2",54000,7),
+       new ShopItem("BENGOO G9000 Stereo Gaming Headset for PS4, PC, Xbox One ","【MULTI-PLATFORM COMPATIBLE】Support PlayStation 4, New Xbox One, PC, Nintendo 3DS, Laptop, PSP, Tablet, iPad, Computer, Mobile Phone. Please note you need an extra Microsoft Adapter (Not Included) when connect with an old version Xbox One controller.",8700,2),
+       new ShopItem("Elite Series 2  - Black","Play like a pro with the all new Xbox elite wireless controller series 2",54000,7),
        new ShopItem("The Legend of Zelda: Breath of the Wild - Nintendo Switch","Discover Hyrule as never before: by making your own path, choices, and consequences",15470,14),
        new ShopItem("Logitech Dual-Motor Feedback Driving Force G29 Gaming Racing Wheel with Responsive Pedals for PlayStation 4 and PlayStation 3 - Black","The definitive sim racing wheel for PlayStation 4 and PlayStation 3: Realistic steering and pedal action for the latest racing titles",99000,6),
        new ShopItem("amFilm Tempered Glass Screen Protector for Nintendo Switch 2017 (2-Pack)","Ultra-clear High Definition with 99.9% transparency to allow an optimal, natural viewing experience",2500,0),
@@ -82,10 +78,35 @@ public class Webshop {
     }
 
     @GetMapping("/avarage-stock")
-    public Integer avgStock(Model model){
-        long sum = 0;
-        sum = items.stream()
-                .
+    public String avgStock(Model model){
+        OptionalDouble avg;
+        avg = items.stream()
+                .mapToDouble(ShopItem::getQuantityOfStock).average();
+        model.addAttribute("avg", avg);
+        return "avarage";
     }
+
+    @GetMapping("/most-expensive")
+    public String mostExpensive(Model model){
+        ShopItem mostExpensive = items.stream()
+                .filter(x -> x.getQuantityOfStock()>0)
+                .max(Comparator.comparing(ShopItem::getPrice)).orElse(null);
+
+
+
+        model.addAttribute("items",mostExpensive);
+        return "index";
+
+    }
+
+    @PostMapping("/search")
+    public String searchForProduct(String search, Model model){
+        List<ShopItem> results = items.stream()
+                .filter(x -> x.getName().contains(search) ||x.getDescription().contains(search))
+                .collect(Collectors.toList());
+        model.addAttribute("items",results);
+        return "index";
+}
+
 }
 

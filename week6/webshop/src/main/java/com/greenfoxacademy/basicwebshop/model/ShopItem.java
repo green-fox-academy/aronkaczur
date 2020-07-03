@@ -1,5 +1,9 @@
 package com.greenfoxacademy.basicwebshop.model;
 
+import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collector;
+
 public class ShopItem {
     String name;
     String description;
@@ -46,4 +50,5 @@ public class ShopItem {
         this.price = price;
         this.quantityOfStock = quantityOfStock;
     }
+
 }
