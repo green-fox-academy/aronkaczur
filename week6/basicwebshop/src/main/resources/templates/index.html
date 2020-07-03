@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Amazing Webshop</title>
+</head>
+<body>
+        <h1>TEST</h1>
+        <table>
+
+            <tr th:each="item :${items}">
+                <td th:text="${item.name}"></td>
+                <td th:text="${item.description}"></td>
+                <td th:text="${item.price}"></td>
+                <td th:text="${item.quantityOfStock}"></td>
+            </tr>
+        </table>
+
+        <p th:text="${dummy}"></p>
+</body>
+</html>

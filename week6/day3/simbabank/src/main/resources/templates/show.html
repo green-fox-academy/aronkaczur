@@ -1,0 +1,59 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>List</title>
+    <link rel="stylesheet" href="https://www.google.com/css/maia.css">
+</head>
+<body>
+<h1 align="center">List</h1>
+<div align="center">
+    <div>
+        <table>
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Balance</th>
+                <th>Type</th>
+                <th>Index</th>
+                <th>King</th>
+                <th>Good or Bad</th>
+                <th>Increase</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            <tr th:each="account : ${list}" th:object="${account}"
+              
+
+                <td th:text="*{name}"></td>
+                <td th:text="*{#numbers.formatDecimal(balance,1,2,'POINT')}"></td>
+                <td th:text="*{animalType}"></td>
+                <td th:text="${accountStat.index}"></td>
+
+                <td><span th:if="*{king}">King</span></td>
+
+                <td th:text="*{good}? 'Good one' : 'Bad guy'"></td>
+                <td>
+                    <form th:action="@{/raisebyindex}" th:method="POST">
+                        <input type="hidden" th:value="${accountStat.index}" name="accountIndex"/>
+                        <input type="submit" value="Increase Balance"/>
+                    </form>
+                </td>
+            </tr>
+            </tbody>
+            </tr>
+        </table>
+    </div>
+
+    <div>
+        <form th:action="@{/add}" th:method="POST" th:object="${acc}">
+            <p>Name:<input type="text" name="name" id="name" th:field="*{name}" placeholder="name"/></p>
+            <p>Balance<input type="number" name="balance" id="balance" th:field="*{balance}" placeholder="balance"/></p>
+            <p>Type:<input type="text" name="type" id="type" th:field="*{animalType}" placeholder="type"/></p>
+            <input type="submit" value="add"/>
+        </form>
+    </div>
+</div>
+</body>
+</html>

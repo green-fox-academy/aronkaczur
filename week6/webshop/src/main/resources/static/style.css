@@ -1,0 +1,95 @@
+*{
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+}
+body{
+    background-color: #3E94EC;
+    font-family: 'Nanum Gothic', sans-serif;
+    color: #666A85;
+    font-size: 14pt;
+
+}
+nav{
+    background: deepskyblue;
+    height: 80px;
+    width: 100%;
+}
+label.logo{
+    color: whitesmoke;
+    font-size: 35px;
+    font-variant: small-caps;
+    padding: 20px 100px;
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+
+}
+
+nav ul{
+    float: right;
+    margin-right: 20px;
+}
+nav ul li{
+    display: inline-block;
+    line-height: 80px;
+    margin: 0 5px;
+}
+nav ul li a{
+    color: white;
+    font-size: 17px;
+    text-transform: uppercase;
+    padding: 7px 13px;
+    border-radius: 3px
+}
+a.active,a:hover{
+    background: silver;
+    transition: .5s;
+}
+
+
+table {
+    margin: 0% 25%;
+    border-collapse: collapse;
+}
+
+table td, table th {
+    border: 2px solid lightgray;
+    padding: 20px;
+}
+
+table tr {
+    background-color: #EBEBEB;
+}
+
+table tr:nth-child(even) {
+    background-color: white;
+}
+
+table tr:first-child th {
+    border-top: 0;
+}
+table tr:last-child td {
+    border-bottom: 0;
+}
+table tr td:first-child,
+table tr th:first-child {
+    border-left: 0;
+}
+table tr td:last-child,
+table tr th:last-child {
+    border-right: 0;
+}
+
+thead, th {
+    margin: 0;
+    background-color: #1B1E24;
+    border-bottom: 4px solid #AAB0B9;
+    font-size: 18pt;
+    text-align: left;
+    width: 12em;
+    font-weight: normal;
+    color: lightgray;
+}

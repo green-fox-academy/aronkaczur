@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Amazing Webshop</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+
+        <label class="logo">Amazing webshop</label>
+        <ul>
+            <li><a class="active" href="/">Homepage</a> </li>
+            <li><a href="/only-availabe">Only Available</a> </li>
+            <li><a href="/cheapest-first">Cheapest First</a> </li>
+            <li><a href="/contains-nike">Contains Nike</a> </li>
+            <li><a href="#">Avarage Stock</a> </li>
+            <li><a href="#">Most Expensive Available </a></li>
+        </ul>
+    </nav>
+
+        <table>
+            <tr>
+                <th> Item name</th>
+                <th> Description</th>
+                <th> Price</th>
+                <th> Quantity</th>
+            </tr>
+            <tr th:each="item :${items}">
+                <td th:text="${item.name}"></td>
+                <td th:text="${item.description}"></td>
+                <td th:text="${item.price}"></td>
+                <td th:text="${item.quantityOfStock}"></td>
+            </tr>
+        </table>
+
+
+</body>
+</html>

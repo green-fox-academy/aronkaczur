@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>List of our customers</title>
+</head>
+<body>
+<tbody>
+<tr th:each="account : ${list}" th:object="${account}" /tr>
+
+
+    <td th:text="${"></td>
+    <td th:text="${balance}"></td>
+    <td th:text="${animalType}"></td>
+</body>
+</html>
