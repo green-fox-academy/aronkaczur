@@ -107,6 +107,11 @@ public class Webshop {
         model.addAttribute("items",results);
         return "index";
 }
+    @GetMapping("/more-filters")
+    public String moreFilters(){
+        return "more";
+    }
+
 
 }
 

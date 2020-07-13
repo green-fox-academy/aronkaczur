@@ -9,13 +9,16 @@
     <nav>
 
         <label class="logo">Amazing webshop</label>
+
         <ul>
-            <li><a class="active" href="/">Homepage</a> </li>
+            <li><a  href="/">Homepage</a> </li>
             <li><a href="/only-availabe">Only Available</a> </li>
             <li><a href="/cheapest-first">Cheapest First</a> </li>
             <li><a href="/contains-nike">Contains Nike</a> </li>
             <li><a href="/avarage-stock">Avarage Stock</a> </li>
             <li><a href="/most-expensive">Most Expensive Available </a></li>
+            <li><a href="/more-filters">See more >> </a></li>
+
 
             <form action="/search" method="post" class ="search-form">
                 <input type="text" placeholder="Search.." name="search" id="search">
@@ -37,6 +40,7 @@
                 <td th:text="${item.description}"></td>
                 <td th:text="${item.price}"></td>
                 <td th:text="${item.quantityOfStock}"></td>
+
             </tr>
         </table>
 
