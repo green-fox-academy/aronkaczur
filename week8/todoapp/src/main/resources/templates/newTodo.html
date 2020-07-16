@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Forms</title>
+</head>
+<body>
+<h1>ADD New Todo</h1>
+<form action="#" th:object="${todo}" method="post">
+    <div>
+        <label for="title">Title</label>
+        <input type="text" id="title" name="title" th:field="*{title}">
+    </div>
+    <div>
+        <label for="urgency">Is it urgent?</label>
+        <div id="urgency">
+            <div>
+                <label for="yesUrgent">Yes</label>
+                <input type="radio" id="yesUrgent" th:field="*{urgent}" th:value="true">
+            </div>
+            <div>
+                <label for="notUrgent">No</label>
+                <input type="radio" id="notUrgent" th:field="*{urgent}" th:value="false">
+            </div>
+        </div>
+    </div>
+    <input type="submit" value="SEND">
+</form>
+</body>
+</html>

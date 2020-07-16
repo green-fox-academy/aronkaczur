@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Fox Club</title>
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" href="/nutrition.css" />
+</head>
+<body>
+<a href="/?name="> Information</a>
+<h1> Welcome to the Nutrition Store </h1>
+<p th:text="'Here you can change ' + ${fox.getName()} + '\'s diet' ">
+
+<ul>
+    <li><a th:href="'/?name='+${fox.getName()}">Information</a></li>
+    <li><a th:href="'/nutrition&name='+${fox.getName()}">Nutrition Store</a></li>
+    <li><a th:href="'/trickcenter&name='+${fox.getName()}">Trick Center</a></li>
+</ul>
+
+<form action="/nutrition&name=" method="post">
+    <label for="Food">Food</label>
+    <select id="Food" name="food">
+        <option th:text="${fox.getFood()}" autofocus></option>
+        <option value="pizza">pizza</option>
+        <option value="korean egg roll">korean egg roll</option>
+        <option value="banana">banana</option>
+        <option value="chips">chips</option>
+        <option value="soba noodles">soba noodles</option>
+        <option value="spicy chicken wings">spicy chicken wings</option>
+        <option value="apple">apple</option>
+    </select>
+    <label for="Drink">Drink</label>
+    <select id="Drink" name="drink">
+        <option th:text="${fox.getDrink()}" autofocus></option>
+        <option value="water">water</option>
+        <option value="matcha tea">matcha tea</option>
+        <option value="7up">7up</option>
+        <option value="zero hell">zero hell</option>
+        <option value="zero coke">zero coke</option>
+    </select>
+    <input type="submit" value="Change">
+</form>
+
+</body>
+</html>

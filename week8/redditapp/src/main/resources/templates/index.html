@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Perfect Reddit Clone</title>
+
+</head>
+<body>
+<div>
+      <form action="#" th:action="@{/newpost}" method="get">
+          <input type="submit" value="New Post" >
+    </form>
+</div>
+<h1>Trending posts</h1>
+<table>
+
+    <tr th:each="posts, iterStat :${posts}" th:if="${iterStat.index}<11">
+        <td  th:text="${posts.karma}"></td>
+        <td><a th:href="'/increment/?id='+${posts.id}">+</a></td>
+        <td><a th:href="'/declare/?id='+${posts.id}">-</a></td>
+        <td ><a th:href="${posts.url}" th:text="${posts.title}"></a></td>
+        <td th:text="${#temporals.format(posts.timestamp,'dd-MM-yyyy HH:mm')}"></td>
+
+
+
+    </tr>
+</table>
+</body>
+</html>
