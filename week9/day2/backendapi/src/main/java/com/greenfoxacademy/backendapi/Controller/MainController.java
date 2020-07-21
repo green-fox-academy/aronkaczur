@@ -1,9 +1,8 @@
 package com.greenfoxacademy.backendapi.Controller;
 
+import com.greenfoxacademy.backendapi.Model.*;
 import com.greenfoxacademy.backendapi.Model.Appendable;
-import com.greenfoxacademy.backendapi.Model.Doubling;
 import com.greenfoxacademy.backendapi.Model.Error;
-import com.greenfoxacademy.backendapi.Model.Greeter;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -52,12 +51,20 @@ public class MainController {
         }
     }
 
-    @GetMapping("dountil/{action}")
+    @GetMapping("/dountil/{action}")
     @ResponseBody
-    public ResponseEntity<? extends Object> action(@PathVariable(required = false) St)
+    public ResponseEntity<? extends Object> action(@PathVariable(required = false) String action, @RequestParam(required = false) Integer until){
+        return ResponseEntity.status(200).body(new SumResult(action,until));
+
+        }
+
 
 
 }
+
+
+
+
 
 
 
