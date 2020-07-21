@@ -1,8 +1,11 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
+
 <head>
+    <script src="https://www.google.com/recaptcha/api.js"></script>
     <meta charset="UTF-8">
     <title>Add new lovely post</title>
+
 </head>
 <body>
 <h1> Add new post</h1>
@@ -12,10 +15,13 @@
         <input type="text" id="title" name="title" th:field="*{title}">
         <label for="url">URL</label>
         <input type="text" id="url" name="url" th:field="*{url}">
-
+        <input type="submit" value="Post now">
     </div>
-    <input type="submit" value="Post">
+
+
 </form>
+
+
 </body>
 
 </html>

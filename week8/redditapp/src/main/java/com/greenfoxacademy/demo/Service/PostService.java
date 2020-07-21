@@ -3,11 +3,16 @@ package com.greenfoxacademy.demo.Service;
 import com.greenfoxacademy.demo.Model.Post;
 import com.greenfoxacademy.demo.Repository.PostRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 
-
+import java.awt.print.Book;
 import java.time.LocalDateTime;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -17,19 +22,24 @@ public class PostService {
 
     PostRepository postRepository;
 
+
     @Autowired
     public PostService(PostRepository postRepository) {
         this.postRepository = postRepository;
+
+
     }
 
 
     public List<Post> getAllPost() {
+
         List<Post> allPosts = (List<Post>) postRepository.findAll();
         allPosts = allPosts.stream().sorted(Comparator.comparingInt(Post::getKarma).reversed())
                 .collect(Collectors.toList());
         return allPosts;
 
     }
+
 
     public void addNewPost(Post post) {
         post.setTimestamp(LocalDateTime.now());
@@ -54,6 +64,7 @@ public class PostService {
         postRepository.save(post);
 
     }
+
 }
 
 
